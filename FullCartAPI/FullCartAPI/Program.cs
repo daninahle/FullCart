@@ -1,3 +1,5 @@
+using FullCartAPI.Repositories.Implementation;
+using FullCartAPI.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +10,8 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<FullCartAPI.Data.ApplicationDBContext>(
        options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

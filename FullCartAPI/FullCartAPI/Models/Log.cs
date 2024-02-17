@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace FullCartAPI.Models;
 
-public partial class Log
+public class Log
 {
     public int Id { get; set; }
 
