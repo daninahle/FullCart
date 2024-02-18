@@ -71,13 +71,13 @@ namespace FullCartAPI.Repositories.Implementation
          
         }
 
-        private Task<bool> CheckEmailExistAsync(string? email)
+        public Task<bool> CheckEmailExistAsync(string? email)
             => _dbContext.Users.AnyAsync(x => x.Email == email);
 
-        private Task<bool> CheckUsernameExistAsync(string? username)
+        public Task<bool> CheckUsernameExistAsync(string? username)
             => _dbContext.Users.AnyAsync(x => x.Email == username);
 
-        private static string CheckPasswordStrength(string pass)
+        public string CheckPasswordStrength(string pass)
         {
             StringBuilder sb = new StringBuilder();
             if (pass.Length < 9)
@@ -88,5 +88,7 @@ namespace FullCartAPI.Repositories.Implementation
                 sb.Append("Password should contain special charcter" + Environment.NewLine);
             return sb.ToString();
         }
+
+       
     }
 }
